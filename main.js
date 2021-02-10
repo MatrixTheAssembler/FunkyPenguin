@@ -5,6 +5,8 @@ const client = new Discord.Client();
 
 const prefix = "-";
 
+textChannelName = "dedelop";
+
 
 client.commands = new Discord.Collection();
 const commmandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
@@ -39,8 +41,6 @@ client.on("message", message => {
 });
 
 client.on("voiceStateUpdate", (oldVoiceState, newVoiceState) => {
-    textChannelName = "general";
-
     if(newVoiceState.channel){
         client.commands.get("joinVoiceChannel").execute(newVoiceState.member.user, client.channels.cache.find(channel => channel.name === textChannelName));
     }else if(oldVoiceState.channel){

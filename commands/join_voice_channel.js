@@ -4,6 +4,11 @@ module.exports = {
     execute(member, channel){
         let hallos = [`Hallo ${member}!`, `Hey ho ${member}!`, `Hi ${member}!`, `Yo ${member}!`, `Was geht ab ${member}?`];
 
-        channel.send(hallos[Math.floor(Math.random() * hallos.length)]);
+        try{
+            channel.send(hallos[Math.floor(Math.random() * hallos.length)]);
+            console.log(`${member} joined.`);
+        }catch{
+            console.log("Channel not available.");
+        }
     }
 }
