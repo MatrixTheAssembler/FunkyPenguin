@@ -49,4 +49,4 @@ client.on("voiceStateUpdate", (oldVoiceState, newVoiceState) => {
 });
 
 
-client.login(process.env.token);
+client.login(process.env.TOKEN);
