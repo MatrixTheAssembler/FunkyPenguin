@@ -3,5 +3,6 @@ module.exports = {
     description: "returns pong",
     execute(message, args){
         message.channel.send("pong");
+        console.log("pong");
     }
 }
