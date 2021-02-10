@@ -35,6 +35,10 @@ client.on("message", message => {
             break;
         case "hallo":
             client.commands.get("hallo").execute(message, args);
+            break;
+        case "exit":
+            
+            break;
         default:
             break;
     }
