@@ -1,3 +1,4 @@
+require("dotenv").config();
 const fs = require("fs");
 
 const Discord = require("discord.js");
@@ -5,16 +6,23 @@ const client = new Discord.Client();
 
 const prefix = "-";
 
-textChannelName = "dedelop";
+channelType = "text";
 
 
 client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
 const commmandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 
 commmandFiles.forEach(file => {
     let command = require(`./commands/${file}`);
 
     client.commands.set(command.name, command);
+
+    if(command.aliases) {
+        command.aliases.forEach(alias => {
+            client.aliases.set(alias, command)
+        })
+    }
 });
 
 
@@ -24,31 +32,26 @@ client.once("ready", () => {
 
 
 client.on("message", message => {
-    if(!message.content.startsWith(prefix) || message.author.bot) return;
+    if(!message.content.startsWith(prefix) || message.author.bot || !message.guild) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
-    const commmand = args.shift().toLowerCase();
+    const commandName = args.shift().toLowerCase();
+    const command = client.commands.get(commandName) || client.aliases.get(commandName);
 
-    switch(commmand){
-        case "ping":
-            client.commands.get("ping").execute(message, args);
-            break;
-        case "hallo":
-            client.commands.get("hallo").execute(message, args);
-            break;
-        case "exit":
-            
-            break;
-        default:
-            break;
+    if(!command){
+        message.channel.send("Type -help or -? to get help.");
+        console.log(`Command ${commandName} could not be found.`);
+        return;
     }
+
+    command.execute(client, prefix, message, args);
 });
 
 client.on("voiceStateUpdate", (oldVoiceState, newVoiceState) => {
     if(newVoiceState.channel){
-        client.commands.get("joinVoiceChannel").execute(newVoiceState.member.user, client.channels.cache.find(channel => channel.name === textChannelName));
+        client.commands.get("joinvoicechannel").execute(newVoiceState.member.user, newVoiceState.channel.guild.channels.cache.find(channel => channel.type === channelType));
     }else if(oldVoiceState.channel){
-        client.commands.get("leaveVoiceChannel").execute(oldVoiceState.member.user, client.channels.cache.find(channel => channel.name === textChannelName));
+        client.commands.get("leavevoicechannel").execute(oldVoiceState.member.user, oldVoiceState.channel.guild.channels.cache.find(channel => channel.type === channelType));
     }
 });
 
