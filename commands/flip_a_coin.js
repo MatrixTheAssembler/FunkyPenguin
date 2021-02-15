@@ -1,5 +1,6 @@
 module.exports = {
     name: "flipacoin",
+    help: "flipacoin",
     description: "Flips a coin.",
     aliases: ["flip", "coin"],
     execute(client, prefix, message, args){

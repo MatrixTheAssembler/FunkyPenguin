@@ -1,5 +1,6 @@
 module.exports = {
     name: "colour",
+    help: "colour",
     description: "Shows random among us colour.",
     aliases: ["color"],
     execute(client, prefix, message, args){

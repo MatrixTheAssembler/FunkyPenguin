@@ -1,12 +1,12 @@
 module.exports = {
     name: "joinvoicechannel",
     description: "greets on join",
-    execute(member, channel){
-        let hallos = [`Hallo ${member}!`, `Hey ho ${member}!`, `Hi ${member}!`, `Yo ${member}!`, `Was geht ab ${member}?`, `Ein wildes ${member} erscheint.`];
+    execute(user, channel){
+        let hallos = [`Hallo ${user}!`, `Hey ho ${user}!`, `Hi ${user}!`, `Yo ${user}!`, `Was geht ab ${user}?`, `Ein wildes ${user} erscheint.`];
 
         try{
             channel.send(hallos[Math.floor(Math.random() * hallos.length)]);
-            console.log(`${member.tag} joined.`);
+            console.log(`${user.tag} joined.`);
         }catch{
             console.log("Channel not available.");
         }

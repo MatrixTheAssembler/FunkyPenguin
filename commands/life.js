@@ -1,5 +1,6 @@
 module.exports = {
     name: "answertolife",
+    help: "answertolife",
     description: "Tells the answer to life.",
     aliases: ["life"],
     execute(client, prefix, message, args){

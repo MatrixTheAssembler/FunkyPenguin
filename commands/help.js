@@ -3,12 +3,11 @@ module.exports = {
     description: "help page",
     aliases: ["?", "h"],
     execute(client, prefix, message, args){
-        let secretCommands = ["test", "help", "leavevoicechannel", "joinvoicechannel"]
-        let commands = client.commands.filter(command => !secretCommands.includes(command.name));
+        let commands = client.helps;
 
-        let newMessage = "commands: ";
+        let newMessage = `prefix: ${prefix}\ncommands: `;
         commands.forEach(command => {
-            newMessage += `-${command.name}, `;
+            newMessage += `${command.help}, `;
         });
         newMessage = newMessage.slice(0, -2);
 

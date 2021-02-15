@@ -1,5 +1,6 @@
 module.exports = {
     name: "randomnumber",
+    help: "randomnumber [from] [to]",
     description: "random number",
     aliases: ["number"],
     execute(client, prefix, message, args){

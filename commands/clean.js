@@ -1,5 +1,6 @@
 module.exports = {
     name: "clean",
+    help: "clean",
     description: "Cleans the channel from old bot messages.",
     aliases: ["purge", "clear", "c"],
     execute(client, prefix, message, args){
@@ -10,7 +11,7 @@ module.exports = {
             messages = messages.filter(message => message.author.bot || message.content.startsWith(prefix));
             message.channel.bulkDelete(messages);
 
-            console.log("clean");
+            console.log(`Cleaned ${messages.size} Messages`);
         }
 
         clean();

@@ -1,5 +1,6 @@
 module.exports = {
     name: "scheresteinpapier",
+    help: "scheresteinpapier",
     description: "Plays Schere Stein Papier.",
     aliases: ["ssp"],
     execute(client, prefix, message, args){

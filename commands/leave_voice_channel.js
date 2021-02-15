@@ -1,12 +1,12 @@
 module.exports = {
     name: "leavevoicechannel",
     description: "greets on leave",
-    execute(member, channel){
-        let ciaos = [`Tschüss ${member}!`, `Ciao ${member}!`, `Bye ${member}!`, `Mach's gut ${member}!`, `Man sieht sich, ${member}!`, `Hau raus, ${member}!`, `Lebe wohl ${member}`];
+    execute(user, channel){
+        let ciaos = [`Tschüss ${user}!`, `Ciao ${user}!`, `Bye ${user}!`, `Mach's gut ${user}!`, `Man sieht sich, ${user}!`, `Hau raus, ${user}!`, `Lebe wohl ${user}`];
 
         try{
             channel.send(ciaos[Math.floor(Math.random() * ciaos.length)]);
-            console.log(`${member.tag} left.`);
+            console.log(`${user.tag} left.`);
         }catch{
             console.log("Channel not available.");
         }
