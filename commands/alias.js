@@ -17,7 +17,6 @@ module.exports = {
         }
 
         let aliases = [...new Set([...[command.name], ...command.aliases])].sort();
-        // aliases.sort();
         
         if(!aliases){
             message.channel.send(`No aliases for ${args[0]} found`);

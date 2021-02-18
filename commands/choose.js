@@ -12,7 +12,7 @@ module.exports = {
 
         let member = members[Math.floor(Math.random() * members.length)];
         
-        let calls = [`Los ${member}!`, `Ich wähle dich ${member}`];
+        let calls = [`Los ${member}!`, `Ich wähle dich ${member}!`];
         let call = calls[Math.floor(Math.random() * calls.length)];
 
         message.channel.send(call);
