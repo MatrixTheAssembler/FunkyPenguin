@@ -11,7 +11,7 @@ module.exports = {
             messages = messages.filter(message => message.author.bot || message.content.startsWith(prefix));
             message.channel.bulkDelete(messages);
 
-            console.log(`Cleaned ${messages.size} Messages`);
+            console.log(`Cleaned ${messages.size} messages.`);
         }
 
         clean();

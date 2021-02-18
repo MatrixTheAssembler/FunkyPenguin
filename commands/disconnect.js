@@ -2,16 +2,24 @@ module.exports = {
     name: "disconnect",
     help: "disconnect",
     description: "Disonnects bot from voice channel.",
-    aliases: ["d"],
+    aliases: ["d", "leave"],
     execute(client, prefix, message, args){
         let {voice} = message.member;
 
-        if(!voice.channelID){
-            message.reply("You must be in a voice channel.");
+        if(!voice.channel){
+            message.channel.send("You must be in a voice channel.");
+            console.log("You must be in a voice channel.");
+            return;
         }
 
-        voice.channel.leave();
-        
-        console.log("disconnect");
+        let soundFile = "./disconnect.mp3";
+
+        if(client.voice.connections.some(connection => connection.channel.id === voice.channel.id)){
+            voice.channel.join().then(connection => {
+                connection.play(soundFile)
+                .on("finish", () => voice.channel.leave());
+            }).catch(err => console.log("Error at disconnect:\n" + err));
+            console.log("disconnect");
+        }
     }
 }

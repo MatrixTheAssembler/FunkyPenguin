@@ -1,7 +1,8 @@
 module.exports = {
-    name: "cabin",
-    help: "cabin",
-    description: "Plays A320 cabin sound.",
+    name: "retard",
+    help: "retard",
+    description: "Plays A320 retard sound.",
+    aliases: ["annatrigger"],
     execute(client, prefix, message, args){
         let {voice} = message.member;
 
@@ -11,13 +12,14 @@ module.exports = {
             return;
         }
 
-        let soundFiles = ["./Seat\ belt\ sign\ off.mp3", "./Seat\ belt\ sign\ on.mp3"];
-        let soundFile = soundFiles[Math.floor(Math.random() * soundFiles.length)];
+        let soundFile = "./retard.mp3";
 
         voice.channel.join().then(connection => {
-            connection.play(soundFile);
+            for(let i = 0; i < 2; i++){
+                connection.play(soundFile);
+            }
         }).catch(err => console.log("Error at cabin:\n" + err));
         
-        console.log("cabin");
+        console.log("retard");
     }
 }
