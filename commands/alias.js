@@ -5,14 +5,14 @@ module.exports = {
     execute(client, prefix, message, args){
         if(!args.length){
             message.channel.send("Alias of what?");
-            console.log("Alias of what?");
+            console.error("Alias of what?");
             return;
         }
 
         let command = client.commands.get(args[0]) || client.aliases.get(args[0]);
         if(!command){
             message.channel.send(`Command ${commandName} could not be found.`)
-            console.log(`Command ${commandName} could not be found.`);
+            console.error(`Command ${commandName} could not be found.`);
             return;
         }
 
@@ -20,7 +20,7 @@ module.exports = {
         
         if(!aliases){
             message.channel.send(`No aliases for ${args[0]} found`);
-            console.log(`No aliases for ${args[0]} found`);
+            console.error(`No aliases for ${args[0]} found`);
             return;
         }
 

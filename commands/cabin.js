@@ -7,7 +7,7 @@ module.exports = {
 
         if(!voice.channel){
             message.channel.send("You must be in a voice channel.");
-            console.log("You must be in a voice channel.");
+            console.error("You must be in a voice channel.");
             return;
         }
 
@@ -16,7 +16,7 @@ module.exports = {
 
         voice.channel.join().then(connection => {
             connection.play(soundFile);
-        }).catch(err => console.log("Error at cabin:\n" + err));
+        }).catch(err => console.error("Error at cabin:\n" + err));
         
         console.log("cabin");
     }

@@ -10,7 +10,7 @@ module.exports = {
             channel.send(hallos[Math.floor(Math.random() * hallos.length)]);
             console.log(`${user.tag} joined.`);
         }catch{
-            console.log("Channel not available.");
+            console.error("Channel not available.");
         }
     }
 }

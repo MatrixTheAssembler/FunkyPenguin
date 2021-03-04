@@ -10,7 +10,7 @@ module.exports = {
             channel.send(ciaos[Math.floor(Math.random() * ciaos.length)]);
             console.log(`${user.tag} left.`);
         }catch{
-            console.log("Channel not available.");
+            console.error("Channel not available.");
         }
     }
 }

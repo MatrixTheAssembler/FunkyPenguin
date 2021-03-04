@@ -45,7 +45,7 @@ client.on("message", message => {
 
     if(!command){
         message.channel.send("Type -help or -? to get help.");
-        console.log(`Command ${commandName} could not be found.`);
+        console.error(`Command ${commandName} could not be found.`);
         return;
     }
 
