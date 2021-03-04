@@ -1,6 +1,6 @@
 module.exports = {
     name: "alias",
-    help: "alias [command]",
+    help: "alias <command>",
     description: "alias page",
     execute(client, prefix, message, args){
         if(!args.length){

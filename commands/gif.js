@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 
 module.exports = {
     name: "gif",
-    help: "gif [search term]",
+    help: "gif <search term>",
     description: "Sends a gif into the chat.",
     execute(client, prefix, message, args){
         let gif;
