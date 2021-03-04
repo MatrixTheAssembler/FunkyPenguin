@@ -5,7 +5,9 @@ module.exports = {
     help: "games",
     description: "Shows a collection of games.",
     execute(client, prefix, message, args){
-        let games = fs.readFileSync("games.txt", "utf8");
+        let games = JSON.parse(fs.readFileSync("games.json", "utf8")).games;
+        
+        games = games.map(game => "<" + game + ">");
         
         message.channel.send(games);
         console.log("games");
