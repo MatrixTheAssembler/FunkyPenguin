@@ -1,8 +1,8 @@
 module.exports = {
-    name: "retard",
-    help: "retard",
-    description: "Plays A320 retard sound.",
-    aliases: ["annatrigger"],
+    name: "retardAirbusA320",
+    help: "retardAirbusA320",
+    description: "Plays Airbus A320 retard sound.",
+    aliases: ["retard", "annatrigger"],
     execute(client, prefix, message, args){
         let {voice} = message.member;
 
@@ -18,8 +18,8 @@ module.exports = {
             for(let i = 0; i < 2; i++){
                 connection.play(soundFile);
             }
-        }).catch(err => console.error("Error at cabin:\n" + err));
+        }).catch(err => console.error("Error at retard Airbus A320:\n" + err));
         
-        console.log("retard");
+        console.log("retard Airbus A320");
     }
 }
