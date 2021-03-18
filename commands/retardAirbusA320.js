@@ -12,7 +12,7 @@ module.exports = {
             return;
         }
 
-        let soundFile = "./retard.mp3";
+        let soundFile = "./retardAirbusA320.mp3";
 
         voice.channel.join().then(connection => {
             for(let i = 0; i < 2; i++){
