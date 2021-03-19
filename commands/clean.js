@@ -9,7 +9,7 @@ module.exports = {
             await message.channel.messages.fetch({limit: 50}).then(resp => messages = resp).catch(err => console.error(err));
             
             messages = messages.filter(message => message.author.bot || message.content.startsWith(prefix));
-            message.channel.bulkDelete(messages);
+            message.channel.bulkDelete(messages, true);
 
             console.log(`Cleaned ${messages.size} messages.`);
         }

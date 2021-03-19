@@ -11,7 +11,7 @@ module.exports = {
             return;
         }
 
-        let soundFiles = ["./Seat\ belt\ sign\ off.mp3", "./Seat\ belt\ sign\ on.mp3"];
+        let soundFiles = ["./sounds/Seat belt sign off.mp3", "./sounds/Seat belt sign on.mp3"];
         let soundFile = soundFiles[Math.floor(Math.random() * soundFiles.length)];
 
         voice.channel.join().then(connection => {
