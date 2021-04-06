@@ -1,8 +1,8 @@
 module.exports = {
-    name: "pegi18",
-    help: "pegi18",
-    description: "Plays Pegi 18 sound.",
-    aliases: ["18"],
+    name: "failure-awaits",
+    help: "failure-awaits",
+    description: "Plays failure awaits sound.",
+    aliases: ["failure"],
     execute(client, prefix, message, args){
         let {voice} = message.member;
 
@@ -12,12 +12,12 @@ module.exports = {
             return;
         }
 
-        let soundFile = "./sounds/Pegi 18.mp3";
+        let soundFile = "./sounds/Failure awaits.mp3";
 
         voice.channel.join().then(connection => {
             connection.play(soundFile);
-        }).catch(err => console.error("Error at Pegi 18:\n" + err));
+        }).catch(err => console.error("Error at failure awaits:\n" + err));
         
-        console.log("Pegi 18");
+        console.log("Failure awaits");
     }
 }

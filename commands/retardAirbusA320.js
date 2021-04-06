@@ -12,14 +12,12 @@ module.exports = {
             return;
         }
 
-        let soundFile = "./sounds/retardAirbusA320.mp3";
+        let soundFile = "./sounds/RetardAirbusA320.mp3";
 
         voice.channel.join().then(connection => {
-            for(let i = 0; i < 2; i++){
-                connection.play(soundFile);
-            }
+            connection.play(soundFile);
         }).catch(err => console.error("Error at retard Airbus A320:\n" + err));
         
-        console.log("retard Airbus A320");
+        console.log("Retard Airbus A320");
     }
 }
