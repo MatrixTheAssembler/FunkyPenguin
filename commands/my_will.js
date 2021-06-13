@@ -2,6 +2,7 @@ module.exports = {
     name: "my-will",
     help: "my-will",
     description: "Plays my will sound.",
+    aliases: ["will"],
     execute(client, prefix, message, args){
         let {voice} = message.member;
 
